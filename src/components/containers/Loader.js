@@ -6,14 +6,14 @@ import Loader from '../presentation/Loader'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        test: Select.sources.getTest(state)
+        test: Select.sources.getData(state)
     }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         load: (key) => {
-            dispatch(Action.sources.test(key));
+            dispatch(Action.sources.load());
         }
     }
 };

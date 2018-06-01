@@ -1,18 +1,19 @@
 import ActionTypes from '../../constants/ActionTypes';
+
 // import _ from 'lodash';
 
 const INITIAL_STATE = {
-    test: 'aaa'
+    data: []
 };
 
-function setTest(state, action){
-    return {...state, test: action.key};
+function addFeed(state, action){
+    return {...state, data: [...state.data, ...[action.data]]};
 }
 
 export default function tasksReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case ActionTypes.TEST:
-            return setTest(state, action);
+            return addFeed(state, action);
         default:
             return state;
     }

@@ -1,8 +1,8 @@
 // import {createSelector} from 'reselect';
 // import _ from 'lodash';
 
-const getTest = state => state.sources.test;
+const getData = state => (state.sources.data && state.sources.data.length) ? state.sources.data[0].title : null;
 
 export default {
-    getTest: getTest
+    getData: getData
 };
