@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-class Test extends React.PureComponent {
+class Loader extends React.PureComponent {
 
     componentDidMount(){
         this.props.load('blabla');
@@ -16,4 +16,4 @@ class Test extends React.PureComponent {
     }
 
 }
-export default Test;
+export default Loader;

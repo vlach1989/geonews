@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Action from '../../state/Action'
 import Select from '../../state/Select';
 
-import Test from '../presentation/Test'
+import Loader from '../presentation/Loader'
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Loader);
