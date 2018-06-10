@@ -1,11 +1,13 @@
 export default {
     rssChannels: [{
+            key: "blogujiciGeomatici",
             type: "blog",
             name: "Blogující geomatici",
-            url: "http://geomatika-zcu.blogspot.com/feeds/posts/default"
+            sourceUrl: "http://geomatika-zcu.blogspot.com/feeds/posts/default"
         },{
+            key: "proStudentyGeomatiky",
             type: "blog",
             name: "Pro studenty geomatiky",
-            url: "http://prostudenty.blogspot.com/feeds/posts/default"
+            sourceUrl: "http://prostudenty.blogspot.com/feeds/posts/default"
         }]
 }
