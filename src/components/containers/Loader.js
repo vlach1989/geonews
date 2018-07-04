@@ -6,7 +6,7 @@ import Loader from '../presentation/Loader'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: Select.sources.getData(state)
+        data: Select.sources.getAllExtendedRecordsSorted(state)
     }
 };
 

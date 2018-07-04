@@ -25,7 +25,16 @@ function loadFeedError(channel, error){
 function loadFeedReceived(channel, result){
     return dispatch => {
         console.log('@@@ Sources/actions#loadRssChannel Result received for channel:', channel.name);
+        result.items.map((item) => {
+            item.date = item.pubDate;
+            delete item.pubDate;
+        });
+
         let data = {...channel, ...result};
+        data.channelLink = data.link;
+        data.channelTitle = data.title;
+        delete data.title;
+        delete data.link;
         dispatch(actionLoadFeedReceived(data));
     };
 }
