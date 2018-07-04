@@ -4,13 +4,13 @@ import React from 'react';
 class Loader extends React.PureComponent {
 
     componentDidMount(){
-        this.props.load('blabla');
+        this.props.load();
     }
 
     render() {
         return (
             <div className="test-component">
-                {this.props.test}
+                AAA
             </div>
         );
     }

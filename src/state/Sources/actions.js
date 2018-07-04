@@ -5,6 +5,8 @@ import config from '../../config';
 
 // import _ from 'lodash';
 
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+
 // ============ creators ===========
 function load() {
     return dispatch => {
@@ -44,7 +46,7 @@ function loadRssChannels() {
 
         config.rssChannels.map(channel => {
             dispatch(loadFeedRequest(channel));
-            let promise = parser.parseURL(channel.sourceUrl);
+            let promise = parser.parseURL(CORS_PROXY + channel.sourceUrl);
 
             return promise.then(((sourceData, result) => {
                 if (result){
