@@ -22,20 +22,24 @@ function loadFeedError(channel, error){
     };
 }
 
-function loadFeedReceived(channel, result){
+function loadFeedReceived(channel, records){
     return dispatch => {
         console.log('@@@ Sources/actions#loadRssChannel Result received for channel:', channel.name);
-        result.items.map((item) => {
-            item.date = item.pubDate;
-            delete item.pubDate;
+
+        let data = records.map(record => {
+            return {
+                key: record.id,
+                title: record.title,
+                content: record.contentSnippet,
+                htmlContent: record.content,
+                published: record.pubDate,
+                author: record.author,
+                url: record.link
+            }
         });
 
-        let data = {...channel, ...result};
-        data.channelLink = data.link;
-        data.channelTitle = data.title;
-        delete data.title;
-        delete data.link;
-        dispatch(actionLoadFeedReceived(data));
+        let channelWithData = {...channel, data: data};
+        dispatch(actionLoadFeedReceived(channelWithData));
     };
 }
 
@@ -58,8 +62,8 @@ function loadRssChannels() {
             let promise = parser.parseURL(CORS_PROXY + channel.sourceUrl);
 
             return promise.then(((sourceData, result) => {
-                if (result){
-                    dispatch(loadFeedReceived(sourceData, result));
+                if (result && result.items && result.items.length){
+                    dispatch(loadFeedReceived(sourceData, result.items));
                 } else {
                     dispatch(loadFeedError(sourceData.name, 'Feed contains no data!'));
                 }
@@ -108,7 +112,7 @@ function actionLoadFeedRequest(sourceData) {
 // ============ export ===========
 
 export default {
-    actionLoadFeedError: actionLoadFeedError,
-    load: load
+    actionLoadFeedError,
+    load
 }
 

@@ -3,12 +3,13 @@ import ActionTypes from '../../constants/ActionTypes';
 // import _ from 'lodash';
 
 const INITIAL_STATE = {
-    data: []
+    byKey: null
 };
 
-function addFeed(state, action){
-    return {...state, data: [...state.data, ...[action.data]]};
-}
+const addFeed = (state, action) => {
+    let newData = {...state.byKey, [action.data.key]: action.data};
+    return {...state, byKey: newData}
+};
 
 export default function tasksReducer(state = INITIAL_STATE, action) {
     switch (action.type) {

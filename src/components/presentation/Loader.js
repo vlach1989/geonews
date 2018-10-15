@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 class Loader extends React.PureComponent {
 
@@ -8,21 +7,11 @@ class Loader extends React.PureComponent {
     }
 
     render() {
-        let records = this.props.data.map(record => {
-           return this.renderRecord(record);
-        });
         return (
             <div className="test-component">
-                {records}
+                Test
             </div>
         );
     }
-
-    renderRecord(record){
-        return (
-            <div key={record.id}>{record.date + ': ' + record.title}</div>
-        );
-    }
-
 }
 export default Loader;

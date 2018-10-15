@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
-import Action from '../../state/Action'
-import Select from '../../state/Select';
 
+import Action from '../../state/Action'
 import Loader from '../presentation/Loader'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: Select.sources.getAllExtendedRecordsSorted(state)
     }
 };
 
