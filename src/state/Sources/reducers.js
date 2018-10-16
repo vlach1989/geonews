@@ -1,20 +1,22 @@
 import ActionTypes from '../../constants/ActionTypes';
 
-// import _ from 'lodash';
-
 const INITIAL_STATE = {
     byKey: null
 };
 
-const addFeed = (state, action) => {
-    let newData = {...state.byKey, [action.data.key]: action.data};
-    return {...state, byKey: newData}
+const addSources = (state, action) => {
+    let newData = {};
+    action.sources.map(source => {
+        newData[source.key] = {...source, data: null};
+        return source;
+    });
+    return {...state, byKey: {...state.byKey, ...newData}};
 };
 
 export default function tasksReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case ActionTypes.SOURCE_LOAD_FEED_RECEIVED:
-            return addFeed(state, action);
+        case ActionTypes.SOURCES_ADD:
+            return addSources(state, action);
         default:
             return state;
     }

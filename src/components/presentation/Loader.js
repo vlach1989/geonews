@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Loader extends React.PureComponent {
+    static propTypes = {
+        initialLoad: PropTypes.func
+    };
 
     componentDidMount(){
-        this.props.load();
+        this.props.initialLoad();
     }
 
     render() {
@@ -14,4 +18,5 @@ class Loader extends React.PureComponent {
         );
     }
 }
+
 export default Loader;

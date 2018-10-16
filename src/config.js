@@ -1,6 +1,5 @@
 export default {
-    rssChannels: [
-        {
+    sources: [{
             "key": "proStudentyGeomatiky",
             "title": "Pro studenty geomatiky",
             "type": "blog",
@@ -9,7 +8,6 @@ export default {
             "originUrl": "http://prostudenty.blogspot.com/",
             "sourceUrl": "http://prostudenty.blogspot.com/feeds/posts/default",
             "labels": null,
-            "data": null
         }, {
             "key": "blogujiciGeomatici",
             "title": "Blogující geomatici",
@@ -19,7 +17,6 @@ export default {
             "originUrl": "http://geomatika-zcu.blogspot.com",
             "sourceUrl": "http://geomatika-zcu.blogspot.com/feeds/posts/default",
             "labels": null,
-            "data": null
         }
     ]
 }

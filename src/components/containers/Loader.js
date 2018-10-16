@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        load: () => {
-            dispatch(Action.sources.load());
+        initialLoad: () => {
+            dispatch(Action.sources.initialLoad());
         }
     }
 };

@@ -18,7 +18,6 @@
                 originUrl: "http://prostudenty.blogspot.com/",
                 sourceUrl: "http://www.blogger.com",
                 labels: ["education", "non-official"], //enumaration
-                data: [ // record ]
             }
         }
     }
@@ -26,19 +25,26 @@
 
 ```
 
-#### Record structure
+### Basic news structure
 
 
 ``` javascript
 
 {
-    key: 'keyFromResource',
-    title: 'Konec blogu',
-    content: 'Lorem ipsum',
-    htmlContent: '<p>Lorem ipsum</p>',
-    published: //ISO standard time,
-    author: "Otakar Čerba",
-    url: "http://prostudenty.blogspot.com/...."
+    news: {
+        byKey: {
+            'dsdjfkshf': {
+                channelKey: 'proStudentyGeomatiky',
+                key: 'dsdjfkshf',
+                title: 'Konec blogu',
+                content: 'Lorem ipsum',
+                htmlContent: '<p>Lorem ipsum</p>',
+                published: //ISO standard time,
+                author: "Otakar Čerba",
+                url: "http://prostudenty.blogspot.com/...."
+            }
+        }
+    }
 }
 
 ```
