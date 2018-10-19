@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 
-import Action from '../../state/Action'
-import Loader from '../presentation/Loader'
+import Action from '../../state/Action';
+import Page from '../presentation/Page';
+import Select from '../../state/Select'
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        data: Select.news.getAllWithSourcesByDate(state)
     }
 };
 
@@ -16,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Loader);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

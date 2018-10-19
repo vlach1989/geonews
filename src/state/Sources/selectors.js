@@ -30,5 +30,6 @@ const getAllByType = createSelector(
 
 export default {
     getAll,
+    getAllByKey,
     getAllByType
 };
