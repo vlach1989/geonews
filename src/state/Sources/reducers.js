@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 const addSources = (state, action) => {
     let newData = {};
     action.sources.map(source => {
-        newData[source.key] = {...source, data: null};
+        newData[source.key] = source;
         return source;
     });
     return {...state, byKey: {...state.byKey, ...newData}};

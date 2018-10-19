@@ -2,12 +2,10 @@ import RssParser from 'rss-parser';
 import _ from 'lodash';
 
 import ActionTypes from '../../constants/ActionTypes';
-import config from '../../config';
 import Select from '../Select';
-
 import NewsActions from '../News/actions';
 
-// import _ from 'lodash';
+import {sources} from '../../resources/index';
 
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
@@ -18,7 +16,7 @@ const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
  */
 function addSources() {
     return dispatch => {
-        dispatch(actionAddSources(config.sources));
+        dispatch(actionAddSources(sources));
     }
 }
 
