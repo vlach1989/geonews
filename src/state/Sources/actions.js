@@ -5,6 +5,8 @@ import ActionTypes from '../../constants/ActionTypes';
 import config from '../../config';
 import Select from '../Select';
 
+import NewsActions from '../News/actions';
+
 // import _ from 'lodash';
 
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
@@ -78,7 +80,7 @@ function loadFeedsFromRss(channels) {
 
 function loadFeedError(channel, error){
     return dispatch => {
-        console.warn('state/Sources/actions#loadRssChannel Error occurred while loading channel:', channel.name);
+        console.warn('state/Sources/actions#loadRssChannel Error occurred while loading channel:', channel.title);
         console.warn('state/Sources/actions#loadRssChannel Error:', error);
         dispatch(actionLoadFeedError(error));
     };
@@ -86,7 +88,7 @@ function loadFeedError(channel, error){
 
 function loadFeedReceived(channel, records){
     return dispatch => {
-        console.log('state/sources/actions#loadRssChannel Result received for channel:', channel.name);
+        console.log('state/sources/actions#loadRssChannel Result received for channel:', channel.title);
         dispatch(actionLoadFeedReceived(records));
 
         let data = records.map(record => {
@@ -102,15 +104,13 @@ function loadFeedReceived(channel, records){
             }
         });
 
-        debugger;
-        // todo dispatch action add in state.News or here?
-        // todo will there be dat stored byKey? - probably yes, we need to access them when we need detail
+        dispatch(NewsActions.add(data));
     };
 }
 
 function loadFeedRequest(channel){
     return dispatch => {
-        console.log('state/Sources/reducers#loadRssChannel Loading of channel started:', channel.name);
+        console.log('state/Sources/reducers#loadRssChannel Loading of channel started:', channel.title);
         dispatch(actionLoadFeedRequest(channel));
     };
 }
