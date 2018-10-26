@@ -9,8 +9,6 @@ import NewsActions from '../News/actions';
 
 import {sources} from '../../resources/index';
 
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-
 // ============ creators ===========
 
 /**
@@ -63,7 +61,7 @@ function loadFeedsFromRss(channels) {
         let parser = new RssParser();
         channels.map(channel => {
             dispatch(loadFeedRequest(channel));
-            let promise = parser.parseURL(CORS_PROXY + channel.sourceUrl);
+            let promise = parser.parseURL(config.corsProxy + channel.sourceUrl);
 
             return promise.then(((sourceData, result) => {
                 if (result && result.items && result.items.length){
