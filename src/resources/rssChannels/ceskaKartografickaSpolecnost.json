@@ -6,5 +6,6 @@
   "language": "cz",
   "originUrl": "https://www.cartography.cz/",
   "sourceUrl": "https://www.cartography.cz/feed/",
-  "labels": null
+  "labels": null,
+  "proxy": true
 }

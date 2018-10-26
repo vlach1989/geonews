@@ -6,5 +6,6 @@
   "language": "cz",
   "originUrl": "http://www.ccss.cz/",
   "sourceUrl": "http://www.ccss.cz/feed/",
-  "labels": null
+  "labels": null,
+  "proxy": true
 }
