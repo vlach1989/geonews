@@ -37,5 +37,6 @@ const getAllWithSourcesByDate = createSelector(
 );
 
 export default {
+    getAllWithSources,
     getAllWithSourcesByDate
 }
