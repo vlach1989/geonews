@@ -1,5 +1,7 @@
 import RssParser from 'rss-parser';
 import _ from 'lodash';
+import config from '../../config';
+import datetime from '../../utils/datetime';
 
 import ActionTypes from '../../constants/ActionTypes';
 import Select from '../Select';
@@ -89,19 +91,24 @@ function loadFeedReceived(channel, records){
         console.log('state/sources/actions#loadRssChannel Result received for channel:', channel.title);
         dispatch(actionLoadFeedReceived(records));
 
-        let data = records.map(record => {
-            return {
-                key: record.id,
-                channelKey: channel.key,
-                title: record.title,
-                content: record.contentSnippet,
-                htmlContent: record.content,
-                published: record.pubDate,
-                author: record.author,
-                url: record.link
+        let now = new Date().toISOString();
+        let data = [];
+
+        records.forEach(record => {
+            let isOlder = datetime.isOlderThan(now, record.pubDate, config.days);
+            if (!isOlder){
+                data.push({
+                    key: record.id,
+                    channelKey: channel.key,
+                    title: record.title,
+                    content: record.contentSnippet,
+                    htmlContent: record.content,
+                    published: record.pubDate,
+                    author: record.author,
+                    url: record.link
+                });
             }
         });
-
         dispatch(NewsActions.add(data));
     };
 }
