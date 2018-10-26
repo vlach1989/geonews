@@ -61,7 +61,9 @@ function loadFeedsFromRss(channels) {
         let parser = new RssParser();
         channels.map(channel => {
             dispatch(loadFeedRequest(channel));
-            let promise = parser.parseURL(config.corsProxy + channel.sourceUrl);
+
+            let url = channel.proxy ? config.corsProxy + channel.sourceUrl : channel.sourceUrl;
+            let promise = parser.parseURL(url);
 
             return promise.then(((sourceData, result) => {
                 if (result && result.items && result.items.length){
@@ -96,12 +98,12 @@ function loadFeedReceived(channel, records){
             let isOlder = datetime.isOlderThan(now, record.pubDate, config.days);
             if (!isOlder){
                 data.push({
-                    key: record.id,
+                    key: record.id || record.guid,
                     channelKey: channel.key,
                     title: record.title,
                     content: record.contentSnippet,
                     htmlContent: record.content,
-                    published: record.pubDate,
+                    published: record.isoDate || record.pubDate,
                     author: record.author,
                     url: record.link
                 });

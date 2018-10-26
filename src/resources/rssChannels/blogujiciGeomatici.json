@@ -6,5 +6,6 @@
   "language": "cz",
   "originUrl": "http://geomatika-zcu.blogspot.com",
   "sourceUrl": "http://geomatika-zcu.blogspot.com/feeds/posts/default",
-  "labels": null
+  "labels": null,
+  "proxy": true
 }

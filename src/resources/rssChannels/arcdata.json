@@ -1,0 +1,10 @@
+{
+  "key": "arcdt",
+  "title": "Arcdata Praha",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "https://arcdata.cz",
+  "sourceUrl": "https://www.arcdata.cz/rss/zpravy-a-akce/aktuality",
+  "labels": null
+}
