@@ -15,7 +15,7 @@ const addSources = (state, action) => {
 
 export default function tasksReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case ActionTypes.SOURCES_ADD:
+        case ActionTypes.SOURCES.ADD:
             return addSources(state, action);
         default:
             return state;

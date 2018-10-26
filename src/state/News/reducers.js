@@ -15,7 +15,7 @@ const add = (state, action) => {
 
 export default function tasksReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case ActionTypes.NEWS_ADD:
+        case ActionTypes.NEWS.ADD:
             return add(state, action);
         default:
             return state;

@@ -12,7 +12,7 @@ const add = (data) => {
 // ============ actions ===========
 function actionAdd(data){
     return {
-        type: ActionTypes.NEWS_ADD,
+        type: ActionTypes.NEWS.ADD,
         data: data
     }
 }

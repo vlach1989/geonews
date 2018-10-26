@@ -124,7 +124,7 @@ function loadFeedRequest(channel){
 
 function actionAddSources(sources){
     return {
-        type: ActionTypes.SOURCES_ADD,
+        type: ActionTypes.SOURCES.ADD,
         sources: sources
     }
 }
@@ -135,7 +135,7 @@ function actionAddSources(sources){
  */
 function actionLoadFeedError(error) {
     return {
-        type: ActionTypes.SOURCES_LOAD_FEED_ERROR,
+        type: ActionTypes.SOURCES.LOAD_FEED.ERROR,
         error: error
     }
 }
@@ -146,7 +146,7 @@ function actionLoadFeedError(error) {
  */
 function actionLoadFeedReceived(data) {
     return {
-        type: ActionTypes.SOURCES_LOAD_FEED_RECEIVED,
+        type: ActionTypes.SOURCES.LOAD_FEED.RECEIVED,
         data: data
     }
 }
@@ -157,7 +157,7 @@ function actionLoadFeedReceived(data) {
  */
 function actionLoadFeedRequest(sourceData) {
     return {
-        type: ActionTypes.SOURCES_LOAD_FEED_REQUEST,
+        type: ActionTypes.SOURCES.LOAD_FEED.REQUEST,
         data: sourceData
     }
 }
@@ -168,7 +168,7 @@ function actionLoadFeedRequest(sourceData) {
  */
 function actionUnknownSourceType(sourceType) {
     return {
-        type: ActionTypes.SOURCES_UNKNOWN_SOURCE_TYPE,
+        type: ActionTypes.SOURCES.UNKNOWN_SOURCE_TYPE,
         sourceType: sourceType
     }
 }
