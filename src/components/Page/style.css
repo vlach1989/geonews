@@ -1,0 +1,7 @@
+.main {
+    display: flex;
+    justify-content: center;
+    max-width: 60rem;
+    margin: 3rem;
+    flex-direction: column;
+}

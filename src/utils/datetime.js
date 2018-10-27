@@ -1,4 +1,22 @@
 /**
+ * @param newsIsoString {string} ISO standard date
+ * @returns {string}
+ */
+function getDateForNewsBox(newsIsoString) {
+    // let nowDate = new Date(nowIsoString);
+    let newsDate = new Date(newsIsoString);
+
+    // TODO better handling of date
+    let news = {
+        day: newsDate.getDate(),
+        month: newsDate.getMonth() + 1,
+        year: newsDate.getFullYear()
+    };
+
+    return `${news.day}. ${news.month}. ${news.year}`;
+}
+
+/**
  * @param dateNow {string} ISO standard date
  * @param dateThen {string} ISO standard date
  * @param period {number} number of days
@@ -12,5 +30,6 @@ function isOlderThan(dateNow, dateThen, period) {
 }
 
 export default {
+    getDateForNewsBox,
     isOlderThan
 }

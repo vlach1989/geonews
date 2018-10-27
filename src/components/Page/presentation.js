@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
+import NewsBox from "../NewsBox/presentation";
 
 class Page extends React.PureComponent {
     static propTypes = {
@@ -13,26 +15,23 @@ class Page extends React.PureComponent {
 
     render() {
         return (
-            <div className="test-component">
+            <div className="main">
                 {this.props.data ? this.renderContent() : "Loading"}
             </div>
         );
     }
 
     renderContent(){
-        let content = this.props.data.map(newsItem => {
+        return this.props.data.map(newsItem => {
             return (
-                <tr>
-                    <td>{newsItem.source.title}</td>
-                    <td>{newsItem.title}</td>
-                    <td>{newsItem.published}</td>
-                </tr>
+                <NewsBox
+                    date={newsItem.published}
+                    channel={newsItem.source.title}
+                    title={newsItem.title}
+                    url={newsItem.url}
+                />
             );
         });
-
-        return (
-            <table>{content}</table>
-        );
     }
 }
 

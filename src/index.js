@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Page from './components/containers/Page'
+import Page from './components/Page/index'
 import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux';

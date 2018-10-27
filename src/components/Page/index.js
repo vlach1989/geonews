@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Action from '../../state/Action';
-import Page from '../presentation/Page';
+import Presentation from './presentation';
 import Select from '../../state/Select'
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+export default connect(mapStateToProps, mapDispatchToProps)(Presentation);
