@@ -18,6 +18,8 @@
                 originUrl: "http://prostudenty.blogspot.com/",
                 sourceUrl: "http://www.blogger.com",
                 labels: ["education", "non-official"], //enumaration
+                lastLoaded: // ISO standard time
+                loadingStatus: null // or "started", "success", "error"
             }
         }
     }

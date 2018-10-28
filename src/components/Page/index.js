@@ -6,7 +6,8 @@ import Select from '../../state/Select'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: Select.news.getAllWithSourcesByDate(state)
+        data: Select.news.getAllWithSourcesByDate(state),
+        loadingStatus: Select.sources.getGroupedLoadingStatus(state)
     }
 };
 

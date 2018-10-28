@@ -60,7 +60,7 @@ function loadFeedsFromRss(channels) {
     return (dispatch) => {
         let parser = new RssParser();
         channels.map(channel => {
-            dispatch(loadFeedRequest(channel));
+            dispatch(loadFeedRequest(channel.key));
 
             let url = channel.proxy ? config.corsProxy + channel.sourceUrl : channel.sourceUrl;
             let promise = parser.parseURL(url);
@@ -69,27 +69,27 @@ function loadFeedsFromRss(channels) {
                 if (result && result.items && result.items.length){
                     dispatch(loadFeedReceived(sourceData, result.items));
                 } else {
-                    dispatch(loadFeedError(sourceData.name, 'Feed contains no data!'));
+                    dispatch(loadFeedError(sourceData.key, 'Feed contains no data!'));
                 }
             }).bind(null, channel)).catch(err => {
-                dispatch(actionLoadFeedError(err));
+                dispatch(actionLoadFeedError(channel.key, err));
             });
         });
     }
 }
 
-function loadFeedError(channel, error){
+function loadFeedError(channelKey, error){
     return dispatch => {
-        console.warn('state/Sources/actions#loadRssChannel Error occurred while loading channel:', channel.title);
+        console.warn('state/Sources/actions#loadRssChannel Error occurred while loading channel:', channelKey);
         console.warn('state/Sources/actions#loadRssChannel Error:', error);
-        dispatch(actionLoadFeedError(error));
+        dispatch(actionLoadFeedError(channelKey, error));
     };
 }
 
 function loadFeedReceived(channel, records){
     return dispatch => {
         console.log('state/sources/actions#loadRssChannel Result received for channel:', channel.title);
-        dispatch(actionLoadFeedReceived(records));
+        dispatch(actionLoadFeedReceived(channel.key, records));
 
         let now = new Date().toISOString();
         let data = [];
@@ -113,10 +113,10 @@ function loadFeedReceived(channel, records){
     };
 }
 
-function loadFeedRequest(channel){
+function loadFeedRequest(channelKey){
     return dispatch => {
-        console.log('state/Sources/reducers#loadRssChannel Loading of channel started:', channel.title);
-        dispatch(actionLoadFeedRequest(channel));
+        console.log('state/Sources/reducers#loadRssChannel Loading of channel started:', channelKey);
+        dispatch(actionLoadFeedRequest(channelKey));
     };
 }
 
@@ -130,35 +130,39 @@ function actionAddSources(sources){
 }
 
 /**
+ * @param channelKey {string}
  * @param error {string}
  * @returns {{type: string, error: string}}
  */
-function actionLoadFeedError(error) {
+function actionLoadFeedError(channelKey, error) {
     return {
         type: ActionTypes.SOURCES.LOAD_FEED.ERROR,
+        key: channelKey,
         error: error
     }
 }
 
 /**
+ * @param channelKey {string}
  * @param data {Object} feed
  * @returns {{type: string, data: object}}
  */
-function actionLoadFeedReceived(data) {
+function actionLoadFeedReceived(channelKey, data) {
     return {
         type: ActionTypes.SOURCES.LOAD_FEED.RECEIVED,
+        key: channelKey,
         data: data
     }
 }
 
 /**
- * @param sourceData {Object} Request source data
+ * @param sourceKey {string} Source key
  * @returns {{type: string, data: object}}
  */
-function actionLoadFeedRequest(sourceData) {
+function actionLoadFeedRequest(sourceKey) {
     return {
         type: ActionTypes.SOURCES.LOAD_FEED.REQUEST,
-        data: sourceData
+        key: sourceKey
     }
 }
 

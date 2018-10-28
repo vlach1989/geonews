@@ -1,7 +1,13 @@
 .main {
     display: flex;
     justify-content: center;
-    max-width: 60rem;
+    width: 70rem;
     margin: 3rem;
     flex-direction: column;
+}
+
+.status-bar {
+    color: rgba(255,255,255,.7);
+    padding: .5rem;
+    font-size: .9175rem;
 }
