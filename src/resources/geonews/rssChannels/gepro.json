@@ -1,0 +1,11 @@
+{
+  "key": "gepro",
+  "title": "Gepro",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.gepro.cz/",
+  "sourceUrl": "http://www.gepro.cz/feed/?cat=-26%2C-6",
+  "labels": ["it", "company", "cagiMember"],
+  "proxy": true
+}

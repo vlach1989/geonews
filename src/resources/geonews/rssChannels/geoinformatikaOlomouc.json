@@ -1,0 +1,11 @@
+{
+  "key": "kgeup",
+  "title": "Katedra geoinformatiky UPO",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.geoinformatics.upol.cz/",
+  "sourceUrl": "http://www.geoinformatics.upol.cz/feed/",
+  "labels": ["university", "education", "cagiMember", "geoinformatics", "cartography"],
+  "proxy": true
+}

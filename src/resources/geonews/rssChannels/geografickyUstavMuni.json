@@ -1,0 +1,11 @@
+{
+  "key": "gmuni",
+  "title": "Geografický ústav MUNI",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://geogr.muni.cz/",
+  "sourceUrl": "http://geogr.muni.cz/rssxml/noveltycategory/",
+  "labels": ["university", "education", "geoinformatics"],
+  "proxy": true
+}

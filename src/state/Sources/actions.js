@@ -7,7 +7,7 @@ import ActionTypes from '../../constants/ActionTypes';
 import Select from '../Select';
 import NewsActions from '../News/actions';
 
-import {sources} from '../../resources/index';
+import {sources} from '../../resources/geonews/index';
 
 // ============ creators ===========
 
@@ -95,10 +95,11 @@ function loadFeedReceived(channel, records){
         let data = [];
 
         records.forEach(record => {
-            let isOlder = datetime.isOlderThan(now, record.pubDate, config.days);
+            let isOlder = datetime.isOlderThan(now, (record.pubDate || record.isoDate), config.days);
+
             if (!isOlder){
                 data.push({
-                    key: record.id || record.guid,
+                    key: record.id || record.guid || record.link,
                     channelKey: channel.key,
                     title: record.title,
                     content: record.contentSnippet,

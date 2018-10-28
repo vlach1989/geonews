@@ -1,0 +1,11 @@
+{
+  "key": "gefos",
+  "title": "Gefos",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://gefos.cz/web/",
+  "sourceUrl": "http://gefos.cz/web/feed/",
+  "labels": ["company", "gis", "cagiMember", "geodesy", "gis"],
+  "proxy": true
+}

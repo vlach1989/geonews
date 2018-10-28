@@ -1,0 +1,11 @@
+{
+  "key": "hsrs",
+  "title": "Help service - Remote sensing",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.bnhelp.cz/",
+  "sourceUrl": "http://www.bnhelp.cz/feed/",
+  "labels": ["company", "it", "cagiMember"],
+  "proxy": true
+}
