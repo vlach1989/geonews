@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import NewsBox from "../NewsBox/presentation";
+import datetime from "../../utils/datetime";
 
 class Page extends React.PureComponent {
     static propTypes = {
@@ -11,6 +12,7 @@ class Page extends React.PureComponent {
 
     componentDidMount(){
         this.props.initialLoad();
+        this.now = new Date().toISOString();
     }
 
     render() {
@@ -25,7 +27,7 @@ class Page extends React.PureComponent {
         return this.props.data.map(newsItem => {
             return (
                 <NewsBox
-                    date={newsItem.published}
+                    date={datetime.getDateForNewsBox(this.now, newsItem.published)}
                     channel={newsItem.source.title}
                     title={newsItem.title}
                     url={newsItem.url}

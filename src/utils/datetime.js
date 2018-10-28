@@ -1,19 +1,51 @@
 /**
- * @param newsIsoString {string} ISO standard date
+ *  @param nowIsoString {string} ISO standard date
+ * @param thenIsoString {string} ISO standard date
  * @returns {string}
  */
-function getDateForNewsBox(newsIsoString) {
-    // let nowDate = new Date(nowIsoString);
-    let newsDate = new Date(newsIsoString);
+function getDateForNewsBox(nowIsoString, thenIsoString) {
+    let now = getDateParsed(nowIsoString);
+    let then = getDateParsed(thenIsoString);
+    let yesterday = getYesterday(nowIsoString);
 
-    // TODO better handling of date
-    let news = {
-        day: newsDate.getDate(),
-        month: newsDate.getMonth() + 1,
-        year: newsDate.getFullYear()
+    if (now.day === then.day && now.month === then.month && now.year === then.year){
+        return "today";
+    } else if (yesterday.day === then.day && yesterday.month === then.month && yesterday.year === then.year){
+        return "yesterday";
+    } else {
+        return `${then.day}. ${then.month}. ${then.year}`;
+    }
+}
+
+/**
+ * It returns the date parsed 24 hours back from nowIsoString
+ * @param nowIsoString {string}
+ * @returns {{day: number, month: number, year: number, weekday: number, hour: number, minutes: number, ms: number}}
+ */
+function getYesterday(nowIsoString) {
+    let nowDate = new Date(nowIsoString);
+    let nowMs = nowDate.getTime();
+    let yesterdayMs = nowMs - 86400000;
+    let yesterdayDate = new Date(yesterdayMs).toISOString();
+    return getDateParsed(yesterdayDate);
+}
+
+/**
+ * Return date parsed into components
+ * @param isoString {string}
+ * @returns {{day: number, month: number, year: number, weekday: number, hour: number, minutes: number, ms: number}}
+ */
+function getDateParsed(isoString) {
+    let date = new Date(isoString);
+    return {
+        day: date.getDate(),
+        month: date.getMonth() + 1,
+        year: date.getFullYear(),
+        weekday: date.getDay(),
+        hour: date.getHours(),
+        minutes: date.getMinutes(),
+        ms: date.getTime()
     };
-
-    return `${news.day}. ${news.month}. ${news.year}`;
 }
 
 /**
