@@ -5,19 +5,19 @@
     width: 100%;
 }
 .news-box:hover {
-    background: rgba(230,230,230,.1);
-    border-color: transparent;
+    /*background: rgba(230,230,230,.1);*/
+    /*border-color: transparent;*/
 }
 .news-box-headline {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: .7rem 1rem;
+    padding: 1rem;
 }
 .news-box-top {
     display: flex;
     align-items: center;
-    margin-bottom: .2rem;
+    margin-bottom: .3rem;
 }
 .news-box-logo {
     background: rgba(255,255,255,.25);
@@ -30,19 +30,19 @@
     color: rgba(255,255,255,.8);
 }
 .news-box-channel {
-    color: rgba(255,255,255,.4);
+    color: rgba(255,255,255,.5);
     margin: 0 .7rem 0 .5rem;
     text-transform: uppercase;
 }
 .news-box-date {
     display: flex;
     align-items: center;
-    color: rgba(255,255,255,.4);
+    color: rgba(255,255,255,.5);
 }
 .news-box-date:before {
     content: "";
     display: inline-block;
-    background: rgba(255,255,255,.4);
+    background: rgba(255,255,255,.5);
     margin-right: .6rem;
     width: 4px;
     height: 4px;
@@ -52,4 +52,8 @@
     color: rgba(255,255,255,.8);
     font-weight: 300;
     font-size: 2rem;
+}
+.news-box-title:hover {
+    color: rgba(255,255,255,1);
+    text-decoration: underline;
 }
