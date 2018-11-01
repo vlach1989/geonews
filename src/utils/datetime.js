@@ -1,20 +1,38 @@
 /**
  *  @param nowIsoString {string} ISO standard date
  * @param thenIsoString {string} ISO standard date
- * @returns {string}
+ * @returns {Object}
  */
-function getDateForNewsBox(nowIsoString, thenIsoString) {
+function getDateSplitted(nowIsoString, thenIsoString) {
     let now = getDateParsed(nowIsoString);
     let then = getDateParsed(thenIsoString);
     let yesterday = getYesterday(nowIsoString);
 
+    let readablePeriod = null;
+    let {ms, ...period} = then;
+
     if (now.day === then.day && now.month === then.month && now.year === then.year){
-        return "today";
+        let diff = now.ms - then.ms;
+        if (diff < 180000){
+            readablePeriod = 'now';
+        } else if (diff < 3600000){
+            readablePeriod = `${Math.floor(diff/60000)} minutes ago`;
+        } else if (diff < 21600000){
+            let numberOfHours = Math.floor(diff/3600000);
+            let hourString = numberOfHours > 1 ? 'hours ago' : 'hour ago';
+            readablePeriod = `${numberOfHours} ${hourString}`;
+        } else if (diff < 64800000){
+            readablePeriod = 'today';
+        }
     } else if (yesterday.day === then.day && yesterday.month === then.month && yesterday.year === then.year){
-        return "yesterday";
+        readablePeriod = 'yesterday';
+    } else if (((now.ms - then.ms) < 604800000) && (then.weekday !== now.weekday)){
+        let days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        readablePeriod = days[then.weekday];
     } else {
-        return `${then.day}. ${then.month}. ${then.year}`;
+        readablePeriod = 'more than week ago';
     }
+    return {...period, readableStringFromNow: readablePeriod};
 }
 
 /**
@@ -42,7 +60,7 @@ function getDateParsed(isoString) {
         month: date.getMonth() + 1,
         year: date.getFullYear(),
         weekday: date.getDay(),
-        hour: date.getHours(),
+        hours: date.getHours(),
         minutes: date.getMinutes(),
         ms: date.getTime()
     };
@@ -62,6 +80,6 @@ function isOlderThan(dateNow, dateThen, period) {
 }
 
 export default {
-    getDateForNewsBox,
+    getDateSplitted,
     isOlderThan
 }
