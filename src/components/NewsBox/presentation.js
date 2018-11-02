@@ -18,7 +18,7 @@ class NewsBox extends React.PureComponent {
                     <div className="news-box-top">
                         <div className="news-box-logo">W</div>
                         <div className="news-box-channel">{this.props.channel}</div>
-                        <div className="news-box-date">Dnes</div>
+                        <div className="news-box-date">{this.props.date}</div>
                     </div>
                     <a href={this.props.url} target="_blank" className="news-box-title">{this.props.title}</a>
                 </div>

@@ -31,7 +31,7 @@ class Page extends React.PureComponent {
         return this.props.data.map(newsItem => {
             return (
                 <NewsBox
-                    date={datetime.getDateForNewsBox(this.now, newsItem.published)}
+                    date={datetime.getDateSplitted(this.now, newsItem.published).readableStringFromNow}
                     channel={newsItem.source.title}
                     title={newsItem.title}
                     url={newsItem.url}
