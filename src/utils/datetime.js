@@ -79,7 +79,19 @@ function isOlderThan(dateNow, dateThen, period) {
     return ((now - then) > periodMs);
 }
 
+/**
+ * @param dateNow {string} ISO standard date
+ * @param dateThen {string} ISO standard date
+ * @returns {boolean} True, if date is later than other date
+ */
+function isLaterThan(dateNow, dateThen) {
+    let now = new Date(dateNow).getTime();
+    let then = new Date(dateThen).getTime();
+    return (now > then);
+}
+
 export default {
     getDateSplitted,
-    isOlderThan
+    isOlderThan,
+    isLaterThan
 }

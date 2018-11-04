@@ -117,8 +117,9 @@ function loadFeedReceived(channel, records){
 
         records.forEach(record => {
             let isOlder = datetime.isOlderThan(now, (record.pubDate || record.isoDate), config.days);
+            let isLater = datetime.isLaterThan(now, (record.pubDate || record.isoDate));
 
-            if (!isOlder){
+            if (!isOlder && isLater){
                 data.push({
                     key: record.id || record.guid || record.link,
                     channelKey: channel.key,
