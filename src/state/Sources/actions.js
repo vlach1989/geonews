@@ -9,6 +9,8 @@ import NewsActions from '../News/actions';
 
 import {sources} from '../../resources/geonews/index';
 
+const TTL = 5;
+
 // ============ creators ===========
 
 /**
@@ -52,28 +54,41 @@ function loadFeedsFromSources() {
 }
 
 /**
- * Load news from RSS channels
- * @param channels {data} list of channels
+ * @param parser {Object}
+ * @param channel {Object}
+ * @param [ttl] {number} number of attempts
  * @returns {Function}
  */
+function rssRequest(parser, channel, ttl) {
+    return (dispatch) => {
+        if (_.isUndefined(ttl)) ttl = TTL;
+        console.log(`### state/Sources/actions#loadFeedsFromRss: ${ttl} attempts left for channel ${channel.title}`);
+
+        let url = channel.proxy ? config.corsProxy + channel.sourceUrl : channel.sourceUrl;
+        let promise = parser.parseURL(url);
+
+        return promise.then(((sourceData, result) => {
+            if (result && result.items && result.items.length){
+                dispatch(loadFeedReceived(sourceData, result.items));
+            } else {
+                dispatch(loadFeedError(sourceData.key, 'Feed contains no data!'));
+            }
+        }).bind(null, channel)).catch(err => {
+            if (ttl - 1) {
+                rssRequest(parser, channel, ttl - 1);
+            } else {
+                dispatch(actionLoadFeedError(channel.key, err));
+            }
+        });
+    }
+}
+
 function loadFeedsFromRss(channels) {
     return (dispatch) => {
         let parser = new RssParser();
         channels.map(channel => {
             dispatch(loadFeedRequest(channel.key));
-
-            let url = channel.proxy ? config.corsProxy + channel.sourceUrl : channel.sourceUrl;
-            let promise = parser.parseURL(url);
-
-            return promise.then(((sourceData, result) => {
-                if (result && result.items && result.items.length){
-                    dispatch(loadFeedReceived(sourceData, result.items));
-                } else {
-                    dispatch(loadFeedError(sourceData.key, 'Feed contains no data!'));
-                }
-            }).bind(null, channel)).catch(err => {
-                dispatch(actionLoadFeedError(channel.key, err));
-            });
+            dispatch(rssRequest(parser, channel));
         });
     }
 }
