@@ -73,9 +73,15 @@ function rssRequest(parser, channel, ttl) {
             } else {
                 dispatch(loadFeedError(sourceData.key, 'Feed contains no data!'));
             }
-        }).bind(null, channel)).catch(err => {
+        }).bind(null, channel), (err) => {
             if (ttl - 1) {
-                rssRequest(parser, channel, ttl - 1);
+                dispatch(rssRequest(parser, channel, ttl - 1));
+            } else {
+                dispatch(actionLoadFeedError(channel.key, err));
+            }
+        }).catch(err => {
+            if (ttl - 1) {
+                dispatch(rssRequest(parser, channel, ttl - 1));
             } else {
                 dispatch(actionLoadFeedError(channel.key, err));
             }
