@@ -14,13 +14,25 @@ class NewsBox extends React.PureComponent {
     render() {
         return (
             <div className="news-box">
-                <div className="news-box-headline">
-                    <div className="news-box-top">
-                        <div className="news-box-logo">W</div>
-                        <div className="news-box-channel">{this.props.channel}</div>
-                        <div className="news-box-date">{this.props.date}</div>
+                <div className="news-avatar"></div>
+                <div className="news-content">
+                    <div className="news-header">
+                        <span className="news-author">{this.props.channel}</span>
                     </div>
-                    <a href={this.props.url} target="_blank" className="news-box-title">{this.props.title}</a>
+                    <div className="news-body">
+                        <div className="news-article">
+                            <h2 className="news-title">{this.props.title}</h2>
+                            <p className="news-paragraph">Té krojovaných ráda už ně svázané zmrzlý mouřeníni lidském vyvolaného. Pól čase tělem trénovat mapuje? Sem název spotřebuje, od operace patogeny ze vlny výš technologie z právě oficiálně věder položeným. </p>
+                        </div>
+                    </div>
+                    <div className="news-footer">
+                        <div className="news-date-wrap">
+                            <span className="news-date">{this.props.date}</span>
+                        </div>
+                        <div className="news-tools">
+                            <a href={this.props.url} target="_blank">Link</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
