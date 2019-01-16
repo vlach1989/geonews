@@ -1,11 +1,71 @@
 .news-box {
     background: rgba(255,255,255,1);
     border-radius: .15rem;
-    border-top: 5px solid gray;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    border-top: 3px solid lightcoral;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);
     display: flex;
     transition: border .3s ease-in-out, background .3s ease-in-out;
     width: 100%;
-    padding: 1rem;
+    padding: 1.3rem 2rem 1.3rem 1rem;
+    position: relative;
     margin-bottom: 1.5rem;
+}
+
+/* TODO temporary mock */
+.news-avatar {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background: lightcoral;
+}
+
+.news-content {
+    padding-left: 2.7rem;
+}
+
+/* header */
+.news-author {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* body */
+.news-body {
+    margin: 1rem 0 1.25rem;
+}
+
+.news-article {
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    padding: 1rem 1rem 1.5rem;
+    background: #eee;
+}
+
+.news-title {
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+
+.news-paragraph {
+    color: #666682;
+    font-size: 0.925rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+
+.news-footer {
+    display: flex;
+}
+
+.news-date-wrap {
+    flex: 1;
+}
+
+.news-date,
+.news-tools a {
+    color: lightcoral;
 }

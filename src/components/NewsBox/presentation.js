@@ -20,10 +20,13 @@ class NewsBox extends React.PureComponent {
                         <span className="news-author">{this.props.channel}</span>
                     </div>
                     <div className="news-body">
+
+                        {/* TODO specific component */}
                         <div className="news-article">
                             <h2 className="news-title">{this.props.title}</h2>
                             <p className="news-paragraph">Té krojovaných ráda už ně svázané zmrzlý mouřeníni lidském vyvolaného. Pól čase tělem trénovat mapuje? Sem název spotřebuje, od operace patogeny ze vlny výš technologie z právě oficiálně věder položeným. </p>
                         </div>
+
                     </div>
                     <div className="news-footer">
                         <div className="news-date-wrap">
