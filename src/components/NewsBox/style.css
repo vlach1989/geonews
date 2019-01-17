@@ -1,7 +1,7 @@
 .news-box {
     background: rgba(255,255,255,1);
     border-radius: .15rem;
-    border-top: 3px solid lightcoral;
+    border-top: 3px solid #f57d00;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);
     display: flex;
     transition: border .3s ease-in-out, background .3s ease-in-out;
@@ -16,10 +16,11 @@
     position: absolute;
     left: 1rem;
     top: 1rem;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 1rem;
-    background: lightcoral;
+    color: #f57d00;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .news-content {
@@ -50,7 +51,7 @@
 }
 
 .news-paragraph {
-    color: #666682;
+    color: #757585;
     font-size: 0.925rem;
     line-height: 1.5;
 }
@@ -67,5 +68,6 @@
 
 .news-date,
 .news-tools a {
-    color: lightcoral;
+    font-size: .875rem;
+    color: #888899;
 }

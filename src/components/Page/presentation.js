@@ -34,6 +34,7 @@ class Page extends React.PureComponent {
                     date={datetime.getDateSplitted(this.now, newsItem.published).readableStringFromNow}
                     channel={newsItem.source.title}
                     title={newsItem.title}
+                    content={newsItem.content.substring(0, 250) + '...'}
                     url={newsItem.url}
                     key={newsItem.key}
                 />

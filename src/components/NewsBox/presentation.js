@@ -8,13 +8,16 @@ class NewsBox extends React.PureComponent {
         date: PropTypes.string,
         channel: PropTypes.string,
         title: PropTypes.string,
+        content: PropTypes.string,
         url: PropTypes.string,
     };
 
     render() {
         return (
             <div className="news-box">
-                <div className="news-avatar"></div>
+                <div className="news-avatar">
+                    <i className="fab fa-blogger"></i>
+                </div>
                 <div className="news-content">
                     <div className="news-header">
                         <span className="news-author">{this.props.channel}</span>
@@ -24,7 +27,7 @@ class NewsBox extends React.PureComponent {
                         {/* TODO specific component */}
                         <div className="news-article">
                             <h2 className="news-title">{this.props.title}</h2>
-                            <p className="news-paragraph">Té krojovaných ráda už ně svázané zmrzlý mouřeníni lidském vyvolaného. Pól čase tělem trénovat mapuje? Sem název spotřebuje, od operace patogeny ze vlny výš technologie z právě oficiálně věder položeným. </p>
+                            <p className="news-paragraph">{this.props.content}</p>
                         </div>
 
                     </div>
