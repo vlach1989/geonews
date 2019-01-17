@@ -33,6 +33,7 @@ class Page extends React.PureComponent {
                 <NewsBox
                     date={datetime.getDateSplitted(this.now, newsItem.published).readableStringFromNow}
                     channel={newsItem.source.title}
+                    type={newsItem.source.type}
                     title={newsItem.title}
                     content={newsItem.content.substring(0, 250) + '...'}
                     url={newsItem.url}

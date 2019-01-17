@@ -71,3 +71,11 @@
     font-size: .875rem;
     color: #888899;
 }
+
+/* types */
+.news-box.web {
+    border-top: 3px solid #ce3b2d;
+}
+.news-box.web .news-avatar {
+    color: #ce3b2d;
+}

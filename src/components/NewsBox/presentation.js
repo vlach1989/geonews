@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import './style.css';
 
@@ -10,13 +11,16 @@ class NewsBox extends React.PureComponent {
         title: PropTypes.string,
         content: PropTypes.string,
         url: PropTypes.string,
+        type: PropTypes.string
     };
 
     render() {
+        let classes = classnames("news-box", this.props.type);
+
         return (
-            <div className="news-box">
+            <div className={classes}>
                 <div className="news-avatar">
-                    <i className="fab fa-blogger"></i>
+                    <i className={this.getAvatar()}></i>
                 </div>
                 <div className="news-content">
                     <div className="news-header">
@@ -42,6 +46,17 @@ class NewsBox extends React.PureComponent {
                 </div>
             </div>
         );
+    }
+
+    getAvatar(){
+        switch (this.props.type) {
+            case "blog":
+                return "fab fa-blogger";
+            case "web":
+                return "fas fa-globe-europe";
+            default:
+                return "fas fa-file";
+        }
     }
 }
 
