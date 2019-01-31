@@ -1,0 +1,11 @@
+{
+  "key": "geocommunity",
+  "title": "GeoCommunity.cz",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.geocommunity.cz/",
+  "sourceUrl": "http://www.geocommunity.cz/feed/",
+  "labels": ["education", "gis", "geoinformatics", "community"],
+  "proxy": true
+}

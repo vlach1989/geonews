@@ -1,0 +1,11 @@
+{
+  "key": "cekozem",
+  "title": "Česká komora zeměměřičů",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "https://www.kgk.cz/",
+  "sourceUrl": "http://www.kgk.cz/feed/",
+  "labels": ["society", "geodesy"],
+  "proxy": true
+}

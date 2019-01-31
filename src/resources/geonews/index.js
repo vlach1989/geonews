@@ -1,27 +1,41 @@
 import arcdata from './rssChannels/arcdata';
+import astronomickyUstav from './rssChannels/astronomickyUstav';
 import blogujiciGeomatici from './rssChannels/blogujiciGeomatici';
 import ceskaKartografickaSpolecnost from './rssChannels/ceskaKartografickaSpolecnost';
+import ceskaKomoraZememericu from './rssChannels/ceskaKomoraZememericu';
 import ccss from './rssChannels/ccss';
-import hsrs from './rssChannels/hsrs';
+import cleerio from './rssChannels/cleerio';
+import fondOtakaraMotejla from './rssChannels/fondOtakaraMotejla';
 import gefos from './rssChannels/gefos';
+import geoCommunity from './rssChannels/geocommunity';
 import geografickyUstav from './rssChannels/geografickyUstavMuni';
 import geoinformatikaOlomouc from './rssChannels/geoinformatikaOlomouc';
 import geoinformatikaUk from './rssChannels/geoinformatikaUk';
 import geoinformatikaVsb from './rssChannels/geoinformatikaVsb';
 import gepro from './rssChannels/gepro';
+import gisMentors from "./rssChannels/gisMentors";
+import hsrs from './rssChannels/hsrs';
 import tmapy from './rssChannels/tmapy';
+import zememeric from './rssChannels/zememeric';
 
 export const sources = [
-    geoinformatikaUk,
     arcdata,
+    astronomickyUstav,
     blogujiciGeomatici,
     ccss,
     ceskaKartografickaSpolecnost,
-    hsrs,
+    ceskaKomoraZememericu,
+    cleerio,
+    fondOtakaraMotejla,
     gefos,
+    geoCommunity,
     geografickyUstav,
     geoinformatikaOlomouc,
+    geoinformatikaUk,
     geoinformatikaVsb,
     gepro,
-    tmapy
+    gisMentors,
+    hsrs,
+    tmapy,
+    zememeric
 ];

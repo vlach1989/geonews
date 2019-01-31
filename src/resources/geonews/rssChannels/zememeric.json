@@ -1,0 +1,11 @@
+{
+  "key": "zememeric",
+  "title": "Zeměměřič",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://zememeric.cz",
+  "sourceUrl": "http://zememeric.cz/rss/",
+  "labels": ["geodesy", "gis", "geoinformatics", "magazine", "cartography"],
+  "proxy": true
+}

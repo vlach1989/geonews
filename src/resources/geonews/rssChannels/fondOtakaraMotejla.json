@@ -1,0 +1,11 @@
+{
+  "key": "opendatacz",
+  "title": "Otevřená data CZ",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.otevrenadata.cz/",
+  "sourceUrl": "http://www.otevrenadata.cz/rss/",
+  "labels": ["openData", "npo"],
+  "proxy": true
+}

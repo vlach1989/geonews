@@ -1,0 +1,11 @@
+{
+  "key": "cleerio",
+  "title": "Cleerio (Bio-Nexus)",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "https://www.cleerio.com/cs/novinky/",
+  "sourceUrl": "https://www.cleerio.com/feed/",
+  "labels": ["company", "gis"],
+  "proxy": true
+}

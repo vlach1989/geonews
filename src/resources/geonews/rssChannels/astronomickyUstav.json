@@ -1,0 +1,11 @@
+{
+  "key": "asasu",
+  "title": "Astronomický ústav AV ČR",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.asu.cas.cz/",
+  "sourceUrl": "http://www.asu.cas.cz/cz/rss",
+  "labels": ["space", "astronomy", "science"],
+  "proxy": true
+}

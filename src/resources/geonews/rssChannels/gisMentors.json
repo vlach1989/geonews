@@ -1,0 +1,11 @@
+{
+  "key": "gismentors",
+  "title": "GIS Mentors",
+  "type": "blog",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://gismentors.cz/blog/",
+  "sourceUrl": "http://gismentors.cz/blog/feed/",
+  "labels": ["education", "gis", "geoinformatics", "community"],
+  "proxy": true
+}
