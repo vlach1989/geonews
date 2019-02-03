@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import NewsBox from "../NewsBox/presentation";
 import datetime from "../../utils/datetime";
+import LoadingBar from "../LoadingBar";
 
 class Page extends React.PureComponent {
     static propTypes = {
@@ -20,10 +21,21 @@ class Page extends React.PureComponent {
         return (
             <div className="main">
                 <div className="status-bar">
-                    Loaded: {this.props.loadingStatus.success}/{this.props.loadingStatus.total}, Failed: {this.props.loadingStatus.error}
+                    {this.props.loadingStatus ? this.renderLoader() : null}
                 </div>
-                {this.props.data ? this.renderContent() : "Loading"}
+                {this.props.data ? this.renderContent() : null}
             </div>
+        );
+    }
+
+    renderLoader() {
+        return (
+          <LoadingBar
+              total={this.props.loadingStatus.total}
+              started={this.props.loadingStatus.started}
+              success={this.props.loadingStatus.success}
+              error={this.props.loadingStatus.error}
+          />
         );
     }
 

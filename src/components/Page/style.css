@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     max-width: 50rem;
-    margin: 3rem 1rem;
+    margin: 0 1rem;
     flex-direction: column;
 }
 
 .status-bar {
     color: rgba(0,0,0,.7);
-    padding: .5rem;
     font-size: .9175rem;
+    margin: 0 0 1rem 0;
 }

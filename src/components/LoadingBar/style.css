@@ -1,0 +1,18 @@
+.loading-bar {
+    height: 3px;
+    width: 100%;
+    background: #c5c5cf;
+    border-radius: 2px;
+}
+.loading-bar-inner {
+    height: 100%;
+    background: #9999a3;
+    border-radius: 2px;
+    transition: width .5s;
+}
+.loading-bar-error {
+    font-size: .75rem;
+    color: rgba(255,0,0,.5);
+    padding: .3rem 0;
+    text-align: right;
+}
