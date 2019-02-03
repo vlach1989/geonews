@@ -6,5 +6,6 @@
   "language": "cz",
   "originUrl": "https://arcdata.cz",
   "sourceUrl": "https://www.arcdata.cz/rss/zpravy-a-akce/aktuality",
-  "labels": ["company", "gis", "cagiMember"]
+  "labels": ["company", "gis", "cagiMember"],
+  "proxy": true
 }
