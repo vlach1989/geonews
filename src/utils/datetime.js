@@ -14,7 +14,7 @@ function getDateSplitted(nowIsoString, thenIsoString) {
     if (now.day === then.day && now.month === then.month && now.year === then.year){
         let diff = now.ms - then.ms;
         if (diff < 180000){
-            readablePeriod = 'now';
+            readablePeriod = 'Now';
         } else if (diff < 3600000){
             readablePeriod = `${Math.floor(diff/60000)} minutes ago`;
         } else if (diff < 21600000){
@@ -22,15 +22,15 @@ function getDateSplitted(nowIsoString, thenIsoString) {
             let hourString = numberOfHours > 1 ? 'hours ago' : 'hour ago';
             readablePeriod = `${numberOfHours} ${hourString}`;
         } else if (diff < 64800000){
-            readablePeriod = 'today';
+            readablePeriod = 'Today';
         }
     } else if (yesterday.day === then.day && yesterday.month === then.month && yesterday.year === then.year){
-        readablePeriod = 'yesterday';
+        readablePeriod = 'Yesterday';
     } else if (((now.ms - then.ms) < 604800000) && (then.weekday !== now.weekday)){
-        let days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         readablePeriod = days[then.weekday];
     } else {
-        readablePeriod = 'more than week ago';
+        readablePeriod = 'More than week ago';
     }
     return {...period, readableStringFromNow: readablePeriod};
 }
