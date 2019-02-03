@@ -40,7 +40,7 @@ class NewsBox extends React.PureComponent {
                             <span className="news-date">{this.props.date}</span>
                         </div>
                         <div className="news-tools">
-                            <a href={this.props.url} target="_blank">Link</a>
+                            <a href={this.props.url} target="_blank"><i className="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>

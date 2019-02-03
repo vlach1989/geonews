@@ -68,8 +68,15 @@
 
 .news-date,
 .news-tools a {
-    font-size: .875rem;
+    font-size: 1.125rem;
     color: #888899;
+    padding: .3rem;
+    transition: color .2s ease-in-out;
+}
+
+.news-tools a:hover,
+.news-tools a:focus {
+    color: #333350;
 }
 
 /* types */
