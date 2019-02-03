@@ -59,6 +59,7 @@
 /* Footer */
 
 .news-footer {
+    align-items: center;
     display: flex;
 }
 
@@ -68,10 +69,13 @@
 
 .news-date,
 .news-tools a {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #888899;
-    padding: .3rem;
     transition: color .2s ease-in-out;
+}
+
+.news-tools a {
+    font-size: 1.25rem;
 }
 
 .news-tools a:hover,
