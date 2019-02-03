@@ -1,5 +1,6 @@
 import RssParser from 'rss-parser';
 import _ from 'lodash';
+import htmlDecoder from 'html-encoder-decoder';
 import config from '../../config';
 import datetime from '../../utils/datetime';
 
@@ -91,7 +92,9 @@ function rssRequest(parser, channel, ttl) {
 
 function loadFeedsFromRss(channels) {
     return (dispatch) => {
-        let parser = new RssParser();
+        let parser = new RssParser({
+            headers: {'Content-Type': 'text/xml;charset="UTF-8"'}
+        });
         channels.map(channel => {
             dispatch(loadFeedRequest(channel.key));
             dispatch(rssRequest(parser, channel));
@@ -120,16 +123,7 @@ function loadFeedReceived(channel, records){
             let isLater = datetime.isLaterThan(now, (record.pubDate || record.isoDate));
 
             if (!isOlder && isLater){
-                data.push({
-                    key: record.id || record.guid || record.link,
-                    channelKey: channel.key,
-                    title: record.title,
-                    content: record.contentSnippet,
-                    htmlContent: record.content,
-                    published: record.isoDate || record.pubDate,
-                    author: record.author,
-                    url: record.link
-                });
+                data.push(prepareRecord(record, channel.key));
             }
         });
         dispatch(NewsActions.add(data));
@@ -143,8 +137,29 @@ function loadFeedRequest(channelKey){
     };
 }
 
+// ============ helpers ===========
+function prepareRecord(record, channelKey) {
+    let content = htmlDecoder.decode(record.contentSnippet);
+    let contentHtml = htmlDecoder.decode(record.content);
+
+    return {
+        key: record.id || record.guid || record.link,
+        channelKey: channelKey,
+        title: record.title,
+        content: content,
+        htmlContent: contentHtml,
+        published: record.isoDate || record.pubDate,
+        author: record.author,
+        url: record.link
+    }
+}
+
 // ============ actions ===========
 
+/**
+ * @param sources {Array}
+ * @return {{sources: *, type: null}}
+ */
 function actionAddSources(sources){
     return {
         type: ActionTypes.SOURCES.ADD,
