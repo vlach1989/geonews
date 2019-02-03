@@ -1,12 +1,12 @@
 .news-box {
     background: rgba(255,255,255,1);
     border-radius: .15rem;
-    border-top: 3px solid #f57d00;
+    border-top: 5px solid #f57d00;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);
     display: flex;
     transition: border .3s ease-in-out, background .3s ease-in-out;
     width: 100%;
-    padding: 1.3rem 2rem 1.3rem 1rem;
+    padding: 1.5rem 2rem 1.5rem 1rem;
     position: relative;
     margin-bottom: 1.5rem;
 }
@@ -14,8 +14,8 @@
 /* TODO temporary mock */
 .news-avatar {
     position: absolute;
-    left: 1rem;
-    top: 1rem;
+    left: 1.2rem;
+    top: 1.2rem;
     color: #f57d00;
     font-size: 2rem;
     display: flex;
@@ -85,7 +85,7 @@
 
 /* types */
 .news-box.web {
-    border-top: 3px solid #ce3b2d;
+    border-top: 5px solid #757585;
 }
 .news-box.web .news-avatar {
     color: #ce3b2d;

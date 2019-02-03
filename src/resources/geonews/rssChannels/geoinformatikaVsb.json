@@ -1,5 +1,5 @@
 {
-  "key": "vsbtu",
+  "key": "geoinformatikaVsb",
   "title": "Katedra geoinformatiky VŠB",
   "type": "web",
   "sourceType": "rssChannel",
@@ -7,5 +7,6 @@
   "originUrl": "http://gis.vsb.cz/",
   "sourceUrl": "http://gis.vsb.cz/feed/",
   "labels": ["university", "education", "cagiMember", "geoinformatics"],
+  "logo": true,
   "proxy": true
 }

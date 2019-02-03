@@ -8,19 +8,20 @@ class NewsBox extends React.PureComponent {
     static propTypes = {
         date: PropTypes.string,
         channel: PropTypes.string,
+        channelKey: PropTypes.string,
         title: PropTypes.string,
         content: PropTypes.string,
         url: PropTypes.string,
+        hasLogo: PropTypes.bool,
         type: PropTypes.string
     };
 
     render() {
         let classes = classnames("news-box", this.props.type);
-
         return (
             <div className={classes}>
                 <div className="news-avatar">
-                    <i className={this.getAvatar()}></i>
+                    {this.props.hasLogo ? this.getLogo() : (<i className={this.getAvatar()}></i>)}
                 </div>
                 <div className="news-content">
                     <div className="news-header">
@@ -57,6 +58,10 @@ class NewsBox extends React.PureComponent {
             default:
                 return "fas fa-file";
         }
+    }
+
+    getLogo() {
+        return <img src={require(`../../resources/images/${this.props.channelKey}.png`)}/>
     }
 }
 
