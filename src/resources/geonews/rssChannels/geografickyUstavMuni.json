@@ -7,5 +7,6 @@
   "originUrl": "http://geogr.muni.cz/",
   "sourceUrl": "http://geogr.muni.cz/rssxml/noveltycategory/",
   "labels": ["university", "education", "geoinformatics"],
-  "proxy": true
+  "proxy": true,
+  "logo": true
 }

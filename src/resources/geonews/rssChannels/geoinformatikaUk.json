@@ -7,5 +7,6 @@
   "originUrl": "https://www.natur.cuni.cz/geografie/geoinformatika-kartografie",
   "sourceUrl": "https://www.natur.cuni.cz/geografie/geoinformatika-kartografie/default_rss/RSS",
   "labels": ["university", "education", "geoinformatics", "cartography"],
-  "proxy": true
+  "proxy": true,
+  "logo": true
 }

@@ -7,5 +7,6 @@
   "originUrl": "http://www.geoinformatics.upol.cz/",
   "sourceUrl": "http://www.geoinformatics.upol.cz/feed/",
   "labels": ["university", "education", "cagiMember", "geoinformatics", "cartography"],
-  "proxy": true
+  "proxy": true,
+  "logo": true
 }

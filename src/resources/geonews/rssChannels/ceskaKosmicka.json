@@ -1,0 +1,12 @@
+{
+  "key": "ceskaKosmicka",
+  "title": "Česká kosmická kancelář",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "http://www.czechspaceportal.cz/7-sekce/aktuality/",
+  "sourceUrl": "http://www.czechspaceportal.cz/rss/canal.xml",
+  "labels": ["space", "science", "society"],
+  "logo": true,
+  "proxy": true
+}

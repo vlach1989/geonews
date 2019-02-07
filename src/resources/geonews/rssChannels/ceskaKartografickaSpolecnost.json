@@ -7,5 +7,6 @@
   "originUrl": "https://www.cartography.cz/",
   "sourceUrl": "https://www.cartography.cz/feed/",
   "labels": ["society", "cartography", "maps", "cagiMember"],
-  "proxy": true
+  "proxy": true,
+  "logo": true
 }

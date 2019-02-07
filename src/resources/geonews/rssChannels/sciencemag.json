@@ -1,0 +1,12 @@
+{
+  "key": "sciencemag",
+  "title": "ScienceMag.cz",
+  "type": "web",
+  "sourceType": "rssChannel",
+  "language": "cz",
+  "originUrl": "https://sciencemag.cz/category/clanky/",
+  "sourceUrl": "https://sciencemag.cz/feed/",
+  "labels": ["science", "magazine", "education"],
+  "logo": true,
+  "proxy": true
+}

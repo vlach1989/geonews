@@ -5,6 +5,7 @@ import ceskaKartografickaSpolecnost from './rssChannels/ceskaKartografickaSpolec
 import ceskaKomoraZememericu from './rssChannels/ceskaKomoraZememericu';
 import ccss from './rssChannels/ccss';
 import cleerio from './rssChannels/cleerio';
+import cso from './rssChannels/cso';
 import fondOtakaraMotejla from './rssChannels/fondOtakaraMotejla';
 import gefos from './rssChannels/gefos';
 import geoCommunity from './rssChannels/geocommunity';
@@ -15,6 +16,7 @@ import geoinformatikaVsb from './rssChannels/geoinformatikaVsb';
 import gepro from './rssChannels/gepro';
 import gisMentors from "./rssChannels/gisMentors";
 import hsrs from './rssChannels/hsrs';
+import sciencemag from './rssChannels/sciencemag';
 import tmapy from './rssChannels/tmapy';
 import zememeric from './rssChannels/zememeric';
 
@@ -26,6 +28,7 @@ export const sources = [
     ceskaKartografickaSpolecnost,
     ceskaKomoraZememericu,
     cleerio,
+    cso,
     fondOtakaraMotejla,
     gefos,
     geoCommunity,
@@ -36,6 +39,7 @@ export const sources = [
     gepro,
     gisMentors,
     hsrs,
+    sciencemag,
     tmapy,
     zememeric
 ];

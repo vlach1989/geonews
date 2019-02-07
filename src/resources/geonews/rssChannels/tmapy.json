@@ -7,5 +7,6 @@
   "originUrl": "https://www.tmapy.cz/",
   "sourceUrl": "https://www.tmapy.cz/feed/",
   "labels": ["company", "gis", "cagiMember", "geoinformatics", "cartography"],
-  "proxy": true
+  "proxy": true,
+  "logo": true
 }
