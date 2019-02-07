@@ -12,22 +12,26 @@ class LoadingBar extends React.PureComponent {
     };
 
     render() {
-        let loaded = (this.props.success + this.props.error) / this.props.total;
+        let loaded = (this.props.success + this.props.error);
+        let loadedRatio = loaded / this.props.total;
 
         let innerStyle = {
-            width: `${loaded * 100}%`
+            width: `${loadedRatio * 100}%`
         };
 
-        return (
+        let classes = classnames("loading-bar", {
+           success: (loadedRatio === 1)
+        });
+
+        return (this.props.success || this.props.error ? (
             <div className="loading-bar-container">
-                <div className="loading-bar">
-                    <div className="loading-bar-inner" style={innerStyle}></div>
+                <div className={classes}>
+                    <div className="loading-bar-inner" style={innerStyle}>
+                        {`${loaded} of ${this.props.total}`}
+                    </div>
                 </div>
-                {this.props.error ? (
-                    <div className="loading-bar-error">{`${this.props.error} sources failed to load`}</div>
-                ) : null}
             </div>
-        );
+        ) : null);
     }
 }
 

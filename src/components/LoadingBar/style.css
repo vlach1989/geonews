@@ -1,14 +1,32 @@
 .loading-bar {
-    height: 3px;
+    height: 25px;
     width: 100%;
     background: #c5c5cf;
-    border-radius: 2px;
+    border-radius: 0 0 2px 2px;
+    transition: height .5s ease-in-out 3s;
+    overflow: hidden;
+}
+.loading-bar.success {
+    height: 3px;
+}
+.loading-bar:hover,
+.loading-bar.success:hover {
+    height: 25px;
+    transition: height .5s ease-in-out;
 }
 .loading-bar-inner {
     height: 100%;
     background: #9999a3;
     border-radius: 2px;
-    transition: width .5s;
+    transition: width 1s ease-out, color .5s ease-in-out;
+    line-height: 25px;
+    padding-left: 5px;
+    font-weight: 500;
+    font-size: .875rem;
+    color: rgba(255,255,255,.8);
+}
+.loading-bar.success .loading-bar-inner {
+    background: #00aa00;
 }
 .loading-bar-error {
     font-size: .75rem;
