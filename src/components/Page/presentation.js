@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import './style.css';
 import NewsBox from "../NewsBox/presentation";
 import datetime from "../../utils/datetime";
@@ -24,6 +25,7 @@ class Page extends React.PureComponent {
                     {this.props.loadingStatus ? this.renderLoader() : null}
                 </div>
                 {this.props.data ? this.renderContent() : null}
+                {this.renderOverlay()}
             </div>
         );
     }
@@ -55,6 +57,18 @@ class Page extends React.PureComponent {
                 />
             );
         });
+    }
+
+    renderOverlay() {
+        let classes = classnames("page-overlay", {
+            transparent: ((this.props.loadingStatus.success > 3) && this.props.data.length)
+        });
+
+        return (
+            <div className={classes}>
+                <div className="page-overlay-content">GeoNews</div>
+            </div>
+        );
     }
 }
 
